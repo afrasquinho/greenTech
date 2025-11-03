@@ -22,16 +22,16 @@ const About = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mt-8">
               <div className="text-center">
+                <div className="text-4xl font-bold text-green-500 mb-2">24/7</div>
+                <div className="text-gray-600 font-medium">Disponível</div>
+              </div>
+              <div className="text-center">
                 <div className="text-4xl font-bold text-green-500 mb-2">100%</div>
                 <div className="text-gray-600 font-medium">Personalizado</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-green-500 mb-2">B2B</div>
-                <div className="text-gray-600 font-medium">Focado</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-green-500 mb-2">QA</div>
-                <div className="text-gray-600 font-medium">Especialistas</div>
+                <div className="text-4xl font-bold text-green-500 mb-2">IA</div>
+                <div className="text-gray-600 font-medium">Powered</div>
               </div>
             </div>
           </div>

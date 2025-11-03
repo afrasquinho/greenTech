@@ -41,24 +41,8 @@ const Hero = () => {
           </div>
 
           {/* Right Content - AI Chat Interface */}
-          <div className="fade-in relative z-20">
+          <div className="fade-in">
             <AIChatBot />
-          </div>
-        </div>
-
-        {/* Floating Cards */}
-        <div className="hidden lg:flex absolute bottom-20 left-1/2 transform -translate-x-1/2 gap-6 z-10">
-          <div className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-            <div className="text-3xl mb-2">💻</div>
-            <div className="font-semibold text-gray-800">Software Custom</div>
-          </div>
-          <div className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-            <div className="text-3xl mb-2">🔍</div>
-            <div className="font-semibold text-gray-800">QA Engineering</div>
-          </div>
-          <div className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-            <div className="text-3xl mb-2">🚀</div>
-            <div className="font-semibold text-gray-800">Carreira</div>
           </div>
         </div>
       </div>

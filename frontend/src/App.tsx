@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import GoogleAnalytics from './components/GoogleAnalytics'
-import './App.css'
 
 function App() {
   // Add your Google Analytics Measurement ID here

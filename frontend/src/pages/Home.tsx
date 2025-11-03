@@ -1,7 +1,11 @@
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
+import Clients from '../components/Clients'
 import Services from '../components/Services'
+import WhyChooseUs from '../components/WhyChooseUs'
+import UseCases from '../components/UseCases'
 import TechStack from '../components/TechStack'
+import Process from '../components/Process'
 import About from '../components/About'
 import Testimonials from '../components/Testimonials'
 import CTA from '../components/CTA'
@@ -14,8 +18,12 @@ const Home = () => {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
+      <Clients />
       <Services />
+      <WhyChooseUs />
+      <UseCases />
       <TechStack />
+      <Process />
       <About />
       <Testimonials />
       <CTA />

@@ -17,7 +17,7 @@ const Hero = () => {
             <br />que transformam negócios
           </h1>
           <p className="text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
-            Especialistas em software à medida e desenvolvimento de carreira em QA.
+            Especialistas em software à medida e desenvolvimento de carreira tech.
             <br />
             Soluções personalizadas para empresas e particulares.
           </p>

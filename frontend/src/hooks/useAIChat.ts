@@ -42,7 +42,7 @@ const mockAIResponse = async (userInput: string): Promise<string> => {
   const lowerInput = userInput.toLowerCase()
 
   if (lowerInput.includes('serviço') || lowerInput.includes('o que vocês fazem')) {
-    return 'Oferecemos três serviços principais:\n\n1. **Software à Medida**: Desenvolvimento full-stack personalizado para suas necessidades específicas\n2. **Consultoria QA**: Especialização em Quality Assurance Engineering\n3. **Desenvolvimento de Carreira**: Formação, mentoria e preparação para mercado de QA\n\nQual desses serviços mais te interessa? 🤔'
+    return 'Oferecemos três serviços principais:\n\n1. **Software à Medida**: Desenvolvimento full-stack personalizado para suas necessidades específicas\n2. **Consultoria QA**: Especialização em Quality Assurance Engineering\n3. **Desenvolvimento de Carreira**: Formação, mentoria e preparação para mercado tech\n\nQual desses serviços mais te interessa? 🤔'
   }
 
   if (lowerInput.includes('qa') || lowerInput.includes('quality')) {

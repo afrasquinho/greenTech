@@ -11,12 +11,12 @@ const About = () => {
             <p className="text-lg text-gray-600 mb-4 leading-relaxed">
               A <strong className="text-gray-900">GreenTech Solutions</strong> nasceu da vontade de unir 
               expertise técnica com crescimento profissional. Somos especialistas em desenvolver software 
-              à medida para empresas e em preparar profissionais para o mercado de QA.
+              à medida para empresas e em preparar profissionais para o mercado tech.
             </p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Com anos de experiência em desenvolvimento full-stack e Quality Assurance, 
+              Com anos de experiência em desenvolvimento full-stack, QA Engineering e mentoring, 
               oferecemos soluções completas que vão desde a criação de software customizado 
-              até a formação e mentoria de novos talentos.
+              até a formação e mentoria de novos talentos em tecnologia.
             </p>
 
             {/* Stats */}
@@ -38,7 +38,7 @@ const About = () => {
 
           {/* Right Content */}
           <div className="grid grid-cols-1 gap-4">
-            {['Full-Stack Dev', 'QA Engineering', 'Career Coaching'].map((badge, idx) => (
+            {['Full-Stack Dev', 'QA Engineering', 'Tech Mentoring'].map((badge, idx) => (
               <div
                 key={idx}
                 className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-x-2"

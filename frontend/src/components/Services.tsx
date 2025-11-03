@@ -25,9 +25,9 @@ const Services = () => {
     {
       icon: '🚀',
       title: 'Desenvolvimento de Carreira',
-      description: 'Preparação completa para entrar no mercado de QA. Formação, mentoria e orientação profissional personalizada.',
+      description: 'Preparação completa para entrar no mercado tech. Formação, mentoria e orientação profissional personalizada.',
       features: [
-        'Formação em QA',
+        'Formação QA & Full-Stack',
         'Construção de Currículo',
         'Otimização LinkedIn',
         'Mentoria Profissional'

@@ -6,13 +6,13 @@ const Testimonials = () => {
       rating: 5
     },
     {
-      category: "QA Training",
-      content: "A formação em QA superou expectativas. Equipa muito competente e didáctica. Consegui ingressar no mercado de QA.",
+      category: "Tech Training",
+      content: "A formação em QA superou expectativas. Equipa muito competente e didáctica. Consegui ingressar no mercado tech.",
       rating: 5
     },
     {
       category: "Carreira",
-      content: "A mentoria ajudou-me a encontrar o primeiro emprego em QA. Preparação técnica e dicas práticas muito úteis!",
+      content: "A mentoria ajudou-me a encontrar o primeiro emprego em tech. Preparação técnica e dicas práticas muito úteis!",
       rating: 5
     }
   ]

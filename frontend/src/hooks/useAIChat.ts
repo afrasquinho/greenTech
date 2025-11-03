@@ -61,6 +61,18 @@ const mockAIResponse = async (userInput: string): Promise<string> => {
     return 'Sim! Trabalhamos tanto com empresas B2B quanto com particulares! 🏢👤\n\nPara empresas:\n- Desenvolvimento de software personalizado\n- Consultoria QA\n- Integração de sistemas\n- Full-stack solutions\n\nVamos discutir sua necessidade? 😊'
   }
 
+  if (lowerInput.includes('site') || lowerInput.includes('website') || lowerInput.includes('web') || lowerInput.includes('landing page') || lowerInput.includes('aplicação')) {
+    return 'Perfeito! Desenvolvemos websites modernos e funcionais! 🚀\n\nOferecemos:\n- **Design responsivo** (mobile-first)\n- **Desenvolvimento à medida** (React, Angular, etc.)\n- **Integração IA** (como este chat!)\n- **Performance** otimizada\n- **SEO** implementado\n- **Sustentação** completa\n\nPara empresas ou projetos pessoais! Quer discutir seu projeto? 💼'
+  }
+
+  if (lowerInput.includes('curriculo') || lowerInput.includes('cv') || lowerInput.includes('linkedin')) {
+    return 'Excelente! Ajudamos a criar currículos e perfis LinkedIn profissionais! 📝\n\nServiços:\n- **Otimização de CV** para QA/Tech\n- **Perfil LinkedIn** profissional\n- **Dicas** de entrevistas\n- **Preparação** técnica\n- **Mentoria** de carreira\n\nVamos começar? 💪'
+  }
+
+  if (lowerInput.includes('formacao') || lowerInput.includes('curso') || lowerInput.includes('mentoria') || lowerInput.includes('aprender')) {
+    return 'Formação completa em QA Engineering! 📚\n\nOferecemos:\n- Formação **hands-on**\n- Mentoria **personalizada**\n- Preparação para **entrevistas**\n- Projetos **práticos**\n- Certificados de **conclusão**\n- Apoio na **inserção** no mercado\n\nQuer saber mais? 🤓'
+  }
+
   // Default response
   return 'Obrigado pela sua pergunta! 😊\n\nPosso ajudar com:\n- Informações sobre nossos serviços\n- QA Engineering\n- Desenvolvimento de carreira\n- Software à medida\n- Preços e contacto\n\nO que gostaria de saber? 💡'
 }

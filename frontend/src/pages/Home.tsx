@@ -7,6 +7,7 @@ import Testimonials from '../components/Testimonials'
 import CTA from '../components/CTA'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
+import ChatBotWidget from '../components/ChatBotWidget'
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <CTA />
       <Contact />
       <Footer />
+      <ChatBotWidget />
     </div>
   )
 }

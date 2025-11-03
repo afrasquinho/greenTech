@@ -1,24 +1,18 @@
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "João Silva",
-      role: "CEO, TechStart",
-      company: "Empresa B2B",
-      content: "Excelente trabalho na implementação do sistema. Profissionais competentes e atenciosos.",
+      category: "B2B",
+      content: "Excelente trabalho na implementação do sistema. Profissionais competentes e atenciosos. Respeitaram todas as cláusulas de confidencialidade.",
       rating: 5
     },
     {
-      name: "Maria Santos",
-      role: "QA Manager",
-      company: "Consultoria",
-      content: "A formação em QA superou expectativas. Equipa muito competente e didáctica.",
+      category: "QA Training",
+      content: "A formação em QA superou expectativas. Equipa muito competente e didáctica. Consegui ingressar no mercado de QA.",
       rating: 5
     },
     {
-      name: "Pedro Costa",
-      role: "Desenvolvedor",
-      company: "Particular",
-      content: "A mentoria ajudou-me a encontrar o primeiro emprego em QA. Recomendo!",
+      category: "Carreira",
+      content: "A mentoria ajudou-me a encontrar o primeiro emprego em QA. Preparação técnica e dicas práticas muito úteis!",
       rating: 5
     }
   ]
@@ -31,7 +25,7 @@ const Testimonials = () => {
             O Que Dizem Nossos Clientes
           </h2>
           <p className="text-xl text-gray-600">
-            Resultados reais de empresas e profissionais
+            Feedback real - respeitamos total confidencialidade
           </p>
         </div>
 
@@ -55,10 +49,11 @@ const Testimonials = () => {
                 "{testimonial.content}"
               </p>
 
-              {/* Author */}
+              {/* Category */}
               <div className="border-t pt-4">
-                <div className="font-bold text-gray-900">{testimonial.name}</div>
-                <div className="text-sm text-gray-600">{testimonial.role}, {testimonial.company}</div>
+                <span className="text-xs font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
+                  {testimonial.category}
+                </span>
               </div>
             </div>
           ))}

@@ -1,6 +1,5 @@
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
-import Clients from '../components/Clients'
 import Services from '../components/Services'
 import WhyChooseUs from '../components/WhyChooseUs'
 import UseCases from '../components/UseCases'
@@ -18,7 +17,6 @@ const Home = () => {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
-      <Clients />
       <Services />
       <WhyChooseUs />
       <UseCases />

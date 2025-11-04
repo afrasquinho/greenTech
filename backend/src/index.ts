@@ -3,6 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import chatRoutes from './routes/chatRoutes'
 import contactRoutes from './routes/contactRoutes'
+import { connectDatabase } from './config/database'
 
 dotenv.config()
 
@@ -23,11 +24,32 @@ app.get('/', (req, res) => {
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'healthy', timestamp: new Date().toISOString() })
+  res.json({ 
+    status: 'healthy', 
+    timestamp: new Date().toISOString(),
+    database: 'connected'
+  })
 })
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`)
-  console.log(`📡 OpenAI API: ${process.env.OPENAI_API_KEY ? '✅ Configured' : '❌ Not configured - using mock responses'}`)
-})
+async function startServer() {
+  try {
+    // Connect to MongoDB
+    if (process.env.MONGODB_URI) {
+      await connectDatabase()
+    } else {
+      console.log('⚠️  MongoDB URI not configured - skipping database connection')
+    }
+
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on http://localhost:${PORT}`)
+      console.log(`📡 OpenAI API: ${process.env.OPENAI_API_KEY ? '✅ Configured' : '❌ Not configured - using mock responses'}`)
+      console.log(`📦 MongoDB: ${process.env.MONGODB_URI ? '✅ Configured' : '⚠️  Not configured'}`)
+    })
+  } catch (error) {
+    console.error('❌ Failed to start server:', error)
+    process.exit(1)
+  }
+}
+
+startServer()

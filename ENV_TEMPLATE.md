@@ -16,8 +16,9 @@ SMTP_PORT=587
 SMTP_USER=seu-email@gmail.com
 SMTP_PASS=sua-senha-app
 
-# Database (futuro)
-# DATABASE_URL=postgresql://user:pass@localhost:5432/greentech
+# MongoDB (obter connection string do MongoDB Atlas)
+# Formato: mongodb+srv://user:password@cluster.mongodb.net/database?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/greentech?retryWrites=true&w=majority
 ```
 
 ## Frontend `.env` ou `.env.local`
@@ -43,6 +44,7 @@ SMTP_HOST=smtp.sendgrid.net
 SMTP_PORT=587
 SMTP_USER=apikey
 SMTP_PASS=SG.xxx...
+MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/greentech?retryWrites=true&w=majority
 ```
 
 ### Frontend (Netlify/Vercel)

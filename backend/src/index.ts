@@ -25,8 +25,10 @@ const app = express()
 const PORT = process.env.PORT || 3001
 
 // Middleware
+// Normalize FRONTEND_URL (remove trailing slash)
+const frontendUrl = process.env.FRONTEND_URL?.replace(/\/$/, '') || 'http://localhost:5173'
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: frontendUrl,
   credentials: true
 }))
 

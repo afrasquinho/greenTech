@@ -78,9 +78,26 @@ if (githubClientId && githubClientSecret &&
     },
     async (accessToken: string, refreshToken: string, profile: any, done: (error: any, user?: any) => void) => {
       try {
+        console.log('GitHub OAuth profile received:', {
+          id: profile.id,
+          username: profile.username,
+          displayName: profile.displayName,
+          emails: profile.emails,
+          emailsCount: profile.emails?.length || 0
+        })
+
+        // Get email from profile (may be empty if user has private email)
+        const email = profile.emails?.[0]?.value || null
+        const username = profile.username || 'user'
+        const displayName = profile.displayName || profile.username || 'User'
+        
+        // Generate a valid email if not provided
+        const userEmail = email || `${username}@github.local`
+
+        // Try to find user by email or oauthId
         let user = await User.findOne({
           $or: [
-            { email: profile.emails?.[0]?.value },
+            ...(email ? [{ email }] : []),
             { oauthId: profile.id.toString(), oauthProvider: 'github' }
           ]
         })
@@ -90,19 +107,28 @@ if (githubClientId && githubClientSecret &&
           if (!user.oauthProvider) {
             user.oauthProvider = 'github'
             user.oauthId = profile.id.toString()
-            if (!user.name && profile.displayName) {
-              user.name = profile.displayName
+            if (!user.name && displayName) {
+              user.name = displayName
+            }
+            // Update email if it was empty and we now have one
+            if (!user.email && email) {
+              user.email = email
             }
             await user.save()
           }
         } else {
           // Create new user
           user = await User.create({
-            name: profile.displayName || profile.username || 'User',
-            email: profile.emails?.[0]?.value || `${profile.username}@github.local`,
+            name: displayName,
+            email: userEmail,
             oauthProvider: 'github',
             oauthId: profile.id.toString(),
             role: 'client'
+          })
+          console.log('GitHub OAuth: New user created:', {
+            id: user._id,
+            email: user.email,
+            name: user.name
           })
         }
 
@@ -112,7 +138,11 @@ if (githubClientId && githubClientSecret &&
         console.error('Error details:', {
           message: error.message,
           stack: error.stack,
-          profile: profile ? { id: profile.id, email: profile.emails?.[0]?.value } : null
+          profile: profile ? { 
+            id: profile.id, 
+            username: profile.username,
+            email: profile.emails?.[0]?.value 
+          } : null
         })
         return done(error)
       }

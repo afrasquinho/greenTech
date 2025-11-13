@@ -39,13 +39,21 @@ export function githubCallback(req: Request, res: Response) {
     const user = req.user as any
 
     if (!user) {
-      return res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:5173'}/?error=oauth_failed`)
+      console.error('GitHub OAuth callback: No user in request')
+      const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173'
+      return res.redirect(`${frontendUrl}/?error=oauth_failed&reason=no_user`)
     }
+
+    console.log('GitHub OAuth callback: User found', {
+      id: user._id,
+      email: user.email,
+      name: user.name
+    })
 
     // Generate token
     const token = generateToken({
       userId: user._id.toString(),
-      email: user.email,
+      email: user.email || `${user.oauthId}@github.local`,
       role: user.role
     })
 
@@ -54,8 +62,13 @@ export function githubCallback(req: Request, res: Response) {
     res.redirect(`${frontendUrl}/auth/callback?token=${token}&provider=github`)
   } catch (error: any) {
     console.error('GitHub OAuth callback error:', error)
+    console.error('Error details:', {
+      message: error.message,
+      stack: error.stack,
+      user: req.user
+    })
     const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173'
-    res.redirect(`${frontendUrl}/?error=oauth_failed`)
+    res.redirect(`${frontendUrl}/?error=oauth_failed&reason=${encodeURIComponent(error.message || 'unknown')}`)
   }
 }
 

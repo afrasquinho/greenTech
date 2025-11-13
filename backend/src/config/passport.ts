@@ -108,6 +108,12 @@ if (githubClientId && githubClientSecret &&
 
         return done(null, user)
       } catch (error: any) {
+        console.error('Passport GitHub Strategy error:', error)
+        console.error('Error details:', {
+          message: error.message,
+          stack: error.stack,
+          profile: profile ? { id: profile.id, email: profile.emails?.[0]?.value } : null
+        })
         return done(error)
       }
     }

@@ -49,12 +49,12 @@ app.use('/api/notifications', notificationRoutes)
 app.use('/api/payments', paymentRoutes)
 app.use('/api/invoices', invoiceRoutes)
 
-app.get('/', (req, res) => {
+app.get('/', (req: express.Request, res: express.Response) => {
   res.json({ message: 'GreenTech Solutions API - Working!' })
 })
 
 // Health check
-app.get('/health', (req, res) => {
+app.get('/health', (req: express.Request, res: express.Response) => {
   const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
   
   res.json({ 

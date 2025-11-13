@@ -8,7 +8,7 @@ Este guia mostra exatamente como obter o **Google Client Secret** para configura
 
 - Conta Google (Gmail)
 - Acesso ao Google Cloud Console
-- Google Client ID já configurado: `191089884245-clf1nou8qh7hbc4q9jnfb766ucj8mrhp.apps.googleusercontent.com`
+- Google Client ID já configurado: `SEU_GOOGLE_CLIENT_ID.apps.googleusercontent.com`
 
 ---
 
@@ -35,14 +35,14 @@ Este guia mostra exatamente como obter o **Google Client Secret** para configura
 2. Procura pelo teu **OAuth 2.0 Client ID**:
    - Nome: geralmente "Web client" ou o nome que deste
    - Tipo: OAuth 2.0 Client ID
-   - Client ID começa com: `191089884245-...`
+   - Client ID começa com: `SEU_GOOGLE_CLIENT_ID-...`
 
 ### Passo 4: Ver o Client Secret
 
 1. **Clica no nome** do teu OAuth Client ID (não no ícone, mas no nome)
 2. Isto abre a página de detalhes do Client ID
 3. Aqui vais ver:
-   - **Client ID**: `191089884245-clf1nou8qh7hbc4q9jnfb766ucj8mrhp.apps.googleusercontent.com` ✅ (já tens)
+   - **Client ID**: `SEU_GOOGLE_CLIENT_ID.apps.googleusercontent.com` ✅ (substitui pelo teu)
    - **Client secret**: aqui aparece o secret ou um botão para ver/revelar
 
 ### Passo 5: Obter o Client Secret

@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void
-    dataLayer: any[]
+    gtag: (command: string, ...args: (string | number | Date | Record<string, unknown>)[]) => void
+    dataLayer: unknown[]
   }
 }
 
@@ -21,8 +21,8 @@ const GoogleAnalytics: React.FC<GoogleAnalyticsProps> = ({ measurementId }) => {
 
     // Initialize dataLayer
     window.dataLayer = window.dataLayer || []
-    window.gtag = function() {
-      window.dataLayer.push(arguments)
+    window.gtag = function(...args: (string | number | Date | Record<string, unknown>)[]) {
+      window.dataLayer.push(args)
     }
     window.gtag('js', new Date())
     window.gtag('config', measurementId)

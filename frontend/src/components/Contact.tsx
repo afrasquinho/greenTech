@@ -29,8 +29,9 @@ const Contact = () => {
       setSubmitted(true)
       setFormData({ name: '', email: '', company: '', service: '', message: '' })
       setTimeout(() => setSubmitted(false), 5000)
-    } catch (err: any) {
-      setError(err.response?.data?.error || 'Erro ao enviar mensagem. Tente novamente.')
+    } catch (err: unknown) {
+      const error = err as { response?: { data?: { error?: string } } }
+      setError(error.response?.data?.error || 'Erro ao enviar mensagem. Tente novamente.')
     } finally {
       setLoading(false)
     }

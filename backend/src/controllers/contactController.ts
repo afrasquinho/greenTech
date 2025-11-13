@@ -1,13 +1,20 @@
 import { Request, Response } from 'express'
+import mongoose from 'mongoose'
 import { sendEmail } from '../services/emailService'
 import Contact from '../models/Contact'
 
 export async function contactHandler(req: Request, res: Response) {
   try {
+    console.log('📨 Contact request received:', {
+      body: req.body,
+      headers: req.headers['content-type']
+    })
+    
     const { name, email, company, service, message } = req.body
 
     // Validation
     if (!name || !email || !service || !message) {
+      console.log('❌ Validation failed - missing fields')
       return res.status(400).json({ 
         error: 'Missing required fields: name, email, service, message' 
       })
@@ -22,6 +29,11 @@ export async function contactHandler(req: Request, res: Response) {
     // Save to MongoDB (if connected)
     let savedContact = null
     try {
+      if (mongoose.connection.readyState !== 1) {
+        console.error('❌ MongoDB not connected. Connection state:', mongoose.connection.readyState)
+        throw new Error('MongoDB not connected')
+      }
+      
       savedContact = await Contact.create({
         name,
         email,
@@ -29,10 +41,21 @@ export async function contactHandler(req: Request, res: Response) {
         service,
         message
       })
-      console.log('✅ Contact saved to database:', savedContact._id)
+      console.log('✅ Contact saved to database:', {
+        id: savedContact._id,
+        name: savedContact.name,
+        email: savedContact.email,
+        service: savedContact.service
+      })
     } catch (dbError: any) {
-      // Database not connected or error - continue anyway
-      console.log('⚠️  Could not save to database:', dbError.message)
+      // Log detailed error
+      console.error('❌ Database error:', {
+        message: dbError.message,
+        name: dbError.name,
+        code: dbError.code,
+        readyState: mongoose.connection.readyState
+      })
+      // Don't fail the request, but log the error
     }
 
     // Send email
